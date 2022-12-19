@@ -11,8 +11,6 @@
     <description><![CDATA[COM_SPM_DESCRIPTION]]></description>
     <namespace path="src">Piedpiper\Component\Spm</namespace>
     <scriptfile>script.php</scriptfile>
-    <files folder="site">
-    </files>
     <administration>
         <files folder="admin">
             <folder>forms</folder>
@@ -28,4 +26,12 @@
             </menu>
         </submenu>
     </administration>
+    <files folder="site">
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+    <media folder="media" destination="com_spm">
+        <folder>css</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
 </extension>

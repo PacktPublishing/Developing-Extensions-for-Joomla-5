@@ -1,0 +1,17 @@
+.cards {
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+.card{
+    padding: 1rem;
+}
+
+.meta {
+    color: #666;
+    font-size: .8rem;
+}
+
+#project-id{
+    text-align: right;
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_spm",
+  "version": "1.0.0",
+  "description": "Simple Project Manager component assets",
+  "license": "GPL-2.0-or-later",
+  "namespace": "Piedpiper\\component\\Spm",
+  "assets": [
+    {
+      "name": "com_spm.projects",
+      "type": "style",
+      "uri": "com_spm/projects.css"
+    }
+  ]
+}

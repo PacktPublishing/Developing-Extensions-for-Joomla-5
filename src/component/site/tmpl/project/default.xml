@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<layout title="COM_SPM_VIEW_PROJECT_MENU_LABEL">
+		<message>
+			<![CDATA[COM_SPM_VIEW_PROJECT_MENU_DESC]]>
+		</message>
+	</layout>
+	<fields name="request">
+	   <fieldset name="options">
+	        <field
+	            name="id"
+	            type="text"
+	            label="COM_SPM_FIELD_ID_LABEL"
+	            required="true" />
+	   </fieldset>
+   </fields>
+</metadata>
+
