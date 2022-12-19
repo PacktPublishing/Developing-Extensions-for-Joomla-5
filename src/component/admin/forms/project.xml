@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field
+        name="name"
+        type="text"
+        label="COM_SPM_PROJECT_NAME"
+        required="true"
+        />
+    <field
+        name="alias"
+        type="text"
+        label="COM_SPM_PROJECT_ALIAS"
+        required="false"
+        />
+    <field
+        name="description"
+        type="text"
+        label="COM_SPM_PROJECT_DESCRIPTION"
+        required="false"
+        />
+    <field
+        name="deadline"
+        type="text"
+        label="COM_SPM_PROJECT_DEADLINE"
+        required="false"
+        />
+</form>
