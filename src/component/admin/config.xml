@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset
+		name=""
+		label="COM_SPM_CONFIG_FIELDSET_COMPANY_DATA"
+	>
+		<field
+			type="text"
+			label="COM_SPM_CONFIG_COMPANY_NAME_LABEL"
+			description="COM_SPM_CONFIG_COMPANY_NAME_DESCRIPTION"
+		/>
+		<field
+			type="textarea"
+			label="COM_SPM_CONFIG_COMPANY_ADDRESS_LABEL"
+			description="COM_SPM_CONFIG_COMPANY_ADDRESS_DESCRIPTION"
+		/>
+		<field
+			type="text"
+			label="COM_SPM_CONFIG_COMPANY_ID_LABEL"
+			description="COM_SPM_CONFIG_COMPANY_ID_DESCRIPTION"
+		/>
+	</fieldset>
+</config>
+
