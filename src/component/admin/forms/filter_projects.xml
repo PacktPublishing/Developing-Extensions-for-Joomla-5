@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="filter">
+        <field
+            name="search"
+            type="text"
+            label="COM_SPM_PROJECTS_FILTER_SEARCH"
+            />
+    </fields>
+</form>

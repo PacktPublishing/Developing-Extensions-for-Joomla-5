@@ -11,6 +11,11 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 ?>
 
 <form action="<?php echo Route::_('index.php?option=com_spm&view=projects'); ?>" method="post" name="adminForm" id="adminForm">
+    <div class="row">
+        <div class="col-md-12">
+        	<?php echo LayoutHelper::render('joomla.searchtools.default', ['view' => $this]); ?>
+        </div>
+    </div>
     <div class="table-responsive">
         <table class="table table-striped">
             <caption><?php echo Text::_('COM_SPM_PROJECTS_LIST');?></caption>
