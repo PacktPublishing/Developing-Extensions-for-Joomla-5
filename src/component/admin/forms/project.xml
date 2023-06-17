@@ -13,8 +13,16 @@
         required="false"
         />
     <field
+        type="accessiblemedia"
+        directory="projects"
+        label="COM_PROJECT_LOGO"
+        />
+    <field
         name="description"
-        type="text"
+        type="editor"
+        buttons="image"
+        hide="readmore, pagebreak"
+        editor="tinymce|none"
         label="COM_SPM_PROJECT_DESCRIPTION"
         required="false"
         />
