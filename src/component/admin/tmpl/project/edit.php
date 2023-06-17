@@ -15,10 +15,9 @@ HTMLHelper::_('behavior.keepalive');
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-6">
-                        <?php echo $this->form->renderField('name'); ?>
-                        <?php echo $this->form->renderField('alias'); ?>
-                        <?php echo $this->form->renderField('description'); ?>
-                        <?php echo $this->form->renderField('deadline'); ?>
+                        <?php foreach($this->form->getFieldset() as $field): ?>
+                            <?php echo $field->renderField(); ?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
