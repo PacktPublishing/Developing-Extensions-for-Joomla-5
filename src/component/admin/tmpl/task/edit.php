@@ -17,7 +17,7 @@ HTMLHelper::_('behavior.keepalive');
                     <div class="col-md-6">
                         <?php echo $this->form->renderField('title'); ?>
                         <?php echo $this->form->renderField('description'); ?>
-                        <?php echo $this->form->renderField('project'); ?>
+                        <?php echo $this->form->renderField('id_project'); ?>
                     </div>
                 </div>
             </div>
