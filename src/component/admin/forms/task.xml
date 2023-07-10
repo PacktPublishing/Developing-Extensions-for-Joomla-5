@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form>
+<form addfieldprefix="Piedpiper\Component\Spm\Administrator\Fields">
     <field
         name="title"
         type="text"
@@ -14,13 +14,8 @@
         />
     <field
         name="id_project"
-        type="sql"
+        type="project"
         label="COM_SPM_TASK_PROJECT"
-        sql_select="p.*" 
-        sql_from="#__spm_projects AS p" 
-        sql_group="name" 
-        sql_order="p.id ASC" 
-        key_field="id"
-        value_field="name"
+        default=""
         />
 </form>
