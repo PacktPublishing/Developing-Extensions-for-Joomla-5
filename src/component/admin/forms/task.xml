@@ -14,8 +14,13 @@
         />
     <field
         name="id_project"
-        type="text"
+        type="sql"
         label="COM_SPM_TASK_PROJECT"
-        required="false"
+        sql_select="p.*" 
+        sql_from="#__spm_projects AS p" 
+        sql_group="name" 
+        sql_order="p.id ASC" 
+        key_field="id"
+        value_field="name"
         />
 </form>
