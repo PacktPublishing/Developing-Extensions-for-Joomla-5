@@ -9,6 +9,10 @@
         name="amount"
         type="text"
         label="COM_SPM_INVOICE_AMOUNT"
+        inputmode="decimal"
+        class="validate-notzero"
+        required="true"
+        pattern="[0-9]{1,}(\.[0-9]{1,2})?"
         />
     <field
         name="items"
