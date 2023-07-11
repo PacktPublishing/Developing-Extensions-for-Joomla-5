@@ -38,23 +38,6 @@
         label="COM_SPM_PROJECT_ATTACHMENTS"
         multiple="true"
         layout="joomla.form.field.subform.repeatable"
-        >
-        <form>
-            <field
-                name="attachment_file"
-                type="file"
-                label="COM_SPM_PROJECT_ATTACHMENTS_FILE"
-                />
-            <field
-                name="attachment_name"
-                type="text"
-                label="COM_SPM_PROJECT_ATTACHMENTS_NAME"
-                />
-            <field
-                name="attachment_description"
-                type="textarea"
-                label="COM_SPM_PROJECT_ATTACHMENTS_DESCRIPTION"
-                />
-        </form>
-    </field>
+		formsource="administrator/components/com_spm/forms/attachment.xml"
+        />
 </form>
