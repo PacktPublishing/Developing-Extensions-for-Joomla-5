@@ -10,6 +10,14 @@
       "name": "com_spm.projects",
       "type": "style",
       "uri": "com_spm/projects.css"
+    },
+    {
+       "name": "com_spm.validation",
+        "type": "script",
+        "uri": "com_spm/validation-scripts.js",
+        "attributes": {
+            "defer": true
+        }
     }
   ]
 }

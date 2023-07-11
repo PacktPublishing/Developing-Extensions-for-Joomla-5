@@ -42,6 +42,7 @@
     </files>
     <media folder="media" destination="com_spm">
         <folder>css</folder>
+        <folder>js</folder>
         <filename>joomla.asset.json</filename>
     </media>
 </extension>

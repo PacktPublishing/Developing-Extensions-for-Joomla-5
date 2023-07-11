@@ -4,9 +4,14 @@
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Router\Route;
+use Joomla\CMS\Factory;
 
 HTMLHelper::_('behavior.formvalidator');
 HTMLHelper::_('behavior.keepalive');
+
+$document = Factory::getApplication()->getDocument();
+$wam = $document->getWebAssetManager();
+$wam->useScript('com_spm.validation');
 ?>
 
 <form action="<?php echo Route::_('index.php?option=com_spm&view=invoice&layout=edit&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="invoice-form" class="form-validate">
