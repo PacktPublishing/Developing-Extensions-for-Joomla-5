@@ -6,11 +6,11 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\AdminModel;
 use Joomla\CMS\Language\Text;
 
-class ProjectModel extends AdminModel
+class TaskModel extends AdminModel
 {
     public function getForm($data = array(), $loadData = true)
     {
-        $form = $this->loadForm('com_spm.project', 'project', array('control' => 'jform', 'load_data' => $loadData));
+        $form = $this->loadForm('com_spm.task', 'task', array('control' => 'jform', 'load_data' => $loadData));
 
         if (empty($form)) {
             return false;
@@ -22,10 +22,11 @@ class ProjectModel extends AdminModel
     protected function loadFormData()
     {
         $app = Factory::getApplication();
-        $data = $app->getUserState('com_spm.edit.project.data', array());
+        $data = $app->getUserState('com_spm.edit.task.data', array());
 
         if (empty($data)) {
             $data = $this->getItem();
+
         }
 
         return $data;
@@ -33,7 +34,7 @@ class ProjectModel extends AdminModel
 
     public function getTable($name = '', $prefix = '', $options = array())
     {
-        $name = 'Projects';
+        $name = 'Tasks';
         $prefix = 'Table';
 
         if ($table = $this->_createTable($name, $prefix, $options)) {

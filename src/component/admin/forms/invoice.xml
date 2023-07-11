@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field
+        name="number"
+        type="text"
+        label="COM_SPM_INVOICE_NUMBER"
+        />
+    <field
+        name="amount"
+        type="text"
+        label="COM_SPM_INVOICE_AMOUNT"
+        />
+    <field
+        name="items"
+        type="text"
+        label="COM_SPM_INVOICE_ITEMS"
+        />
+    <field
+        name="customer"
+        type="text"
+        label="COM_SPM_INVOICE_CUSTOMER"
+        />
+</form>

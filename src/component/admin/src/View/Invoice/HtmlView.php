@@ -1,6 +1,6 @@
 <?php
 
-namespace Piedpiper\Component\Spm\Administrator\View\Project;
+namespace Piedpiper\Component\Spm\Administrator\View\Invoice;
 
 \defined('_JEXEC') or die;
 
@@ -44,17 +44,17 @@ class HtmlView extends BaseHtmlView
         $toolbar = Toolbar::getInstance();
 
         ToolbarHelper::title(
-            Text::_('COM_SPM_PROJECT_TITLE_' . ($isNew ? 'ADD' : 'EDIT'))
+            Text::_('COM_SPM_INVOICE_TITLE_' . ($isNew ? 'ADD' : 'EDIT'))
         );
 
         if ($canDo->get('core.create')) {
             if ($isNew) {
-                $toolbar->apply('project.save');
+                $toolbar->apply('invoice.save');
             } else {
-                $toolbar->apply('project.apply');
+                $toolbar->apply('invoice.apply');
             }
-            $toolbar->save('project.save');
+            $toolbar->save('invoice.save');
         }
-        $toolbar->cancel('project.cancel', 'JTOOLBAR_CLOSE');
+        $toolbar->cancel('invoice.cancel', 'JTOOLBAR_CLOSE');
     }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field
+        name="title"
+        type="text"
+        label="COM_SPM_TASK_TITLE"
+        required="true"
+        />
+    <field
+        name="description"
+        type="text"
+        label="COM_SPM_TASK_DESCRIPTION"
+        required="false"
+        />
+    <field
+        name="id_project"
+        type="text"
+        label="COM_SPM_TASK_PROJECT"
+        required="false"
+        />
+</form>

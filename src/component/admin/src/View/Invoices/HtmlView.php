@@ -1,6 +1,6 @@
 <?php
 
-namespace Piedpiper\Component\Spm\Administrator\View\Projects;
+namespace Piedpiper\Component\Spm\Administrator\View\Invoices;
 
 \defined('_JEXEC') or die;
 
