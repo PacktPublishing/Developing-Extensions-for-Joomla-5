@@ -1,8 +1,15 @@
 <?php
+
 use Joomla\CMS\Form\FormRule;
 
 class NotzeroRule extends FormRule
 {
-    protected $regex = '[0-9]{1,}(\.[0-9]{1,2})?';
+    public function test(SimpleXMLElement $element, $value, $group = null, JRegistry $input = null, Form $form = null)
+    {
+        if ($value > 0) {
+            return true;
+        }
+        return false;
+    }
 }
 

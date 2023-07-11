@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form addrulepath="administrator/components/com_spm/rules">
+<form>
     <field
         name="firstname"
         type="text"
