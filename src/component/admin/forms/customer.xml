@@ -14,6 +14,7 @@
         name="email"
         type="text"
         label="COM_SPM_CLIENT_EMAIL"
+        required="true"
         />
     <field
         name="company_name"
