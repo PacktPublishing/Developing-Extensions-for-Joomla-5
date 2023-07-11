@@ -26,6 +26,15 @@
             <menu link="option=com_spm&amp;view=projects" img="default">
                     COM_SPM_PROJECTS
             </menu>
+            <menu link="option=com_spm&amp;view=tasks" img="default">
+                    COM_SPM_TASKS
+            </menu>
+            <menu link="option=com_spm&amp;view=customers" img="default">
+                    COM_SPM_CUSTOMERS
+            </menu>
+            <menu link="option=com_spm&amp;view=invoices" img="default">
+                    COM_SPM_INVOICES
+            </menu>
         </submenu>
     </administration>
 </extension>
