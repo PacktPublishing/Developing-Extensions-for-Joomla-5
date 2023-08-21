@@ -6,10 +6,15 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Factory;
 
+HTMLHelper::_(
+    'stylesheet',
+    'com_spm/projects-override.css', 
+    ['version' => 'auto', 'relative' => true]
+);
+
 $wam = Factory::getApplication()->getDocument()->getWebAssetManager();
 
 $wam->useStyle('com_spm.projects');
-
 ?>
 
 <form>
