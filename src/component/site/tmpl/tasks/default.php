@@ -16,7 +16,9 @@ use Joomla\CMS\Factory;
         <?php foreach ($this->items as $item) : ?>
             <div>
                 <h2>
-                    <?php echo $item->name; ?>
+                    <a href="<?php echo Route::_('index.php?option=com_spm&view=task&id=' . $item->id);?>">
+                        <?php echo $item->title; ?>
+                    </a>
                 </h2>
                 <div id="project-id">
                     <?php echo $item->id; ?>
