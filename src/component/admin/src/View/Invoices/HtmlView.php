@@ -24,8 +24,8 @@ class HtmlView extends BaseHtmlView
         $this->activeFilters = $this->get('ActiveFilters');
 
         $user = Factory::getApplication()->getIdentity();
-        if (!$user->authorise(‘core.manage’,’com_spm’)){
-                throw new GenericDataException(‘Not allowed’, 403);
+        if (!$user->authorise('core.manage', 'com_spm')) {
+                throw new GenericDataException('Not allowed', 403);
         }
 
         if (count($errors = $this->get('Errors'))) {
