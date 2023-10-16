@@ -40,4 +40,15 @@
         layout="joomla.form.field.subform.repeatable"
 		formsource="administrator/components/com_spm/forms/attachment.xml"
         />
+	<field
+		name="category"
+		type="category"
+		extension="com_spm"
+		default=""
+		label="COM_SPM_PROJECT_FORM_CATEGORY_LABEL"
+		description="COM_SPM_PROJECT_FORM_CATEGORY_DESCRIPTION"
+		required="true"
+		>
+    <option value="">JOPTION_SELECT_CATEGORY</option>
+</field>
 </form>

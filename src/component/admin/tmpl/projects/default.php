@@ -5,6 +5,7 @@
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Layout\LayoutHelper;
 
 $listOrder = $this->escape($this->state->get('list.ordering'));
 $listDirn  = $this->escape($this->state->get('list.direction'));
@@ -13,7 +14,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 <form action="<?php echo Route::_('index.php?option=com_spm&view=projects'); ?>" method="post" name="adminForm" id="adminForm">
     <div class="row">
         <div class="col-md-12">
-        	<?php echo LayoutHelper::render('joomla.searchtools.default', ['view' => $this]); ?>
+            <?php echo LayoutHelper::render('joomla.searchtools.default', ['view' => $this]); ?>
         </div>
     </div>
     <div class="table-responsive">
@@ -28,11 +29,11 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
             </thead>
             <tbody>
                 <?php foreach ($this->items as $item) : ?>
-                   <tr>
-                   <td><?php echo $item->id; ?></td>
-                   <td><?php echo $item->name; ?></td>
-                   <td><?php echo $item->deadline; ?></td>
-                   </tr>
+                    <tr>
+                        <td  style="background-color: <?php echo $item->color;?>"><?php echo $item->id; ?></td>
+                        <td  style="background-color: <?php echo $item->color;?>"><?php echo $item->name; ?></td>
+                        <td  style="background-color: <?php echo $item->color;?>"><?php echo $item->deadline; ?></td>
+                    </tr>
                 <?php endforeach;?>
             </tbody>
             <tfooter>

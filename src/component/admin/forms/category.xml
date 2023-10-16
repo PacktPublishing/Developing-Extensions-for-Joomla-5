@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="com_spm" label="COM_SPM_CATEGORY_OPTIONS_FIELDSET" description="COM_SPM_CATEGORY_OPTIONS_FIELDSET_DESCRIPTION">
+            <field
+			    name="color"
+				type="color"
+				default=""
+				label="COM_SPM_CATEGORY_OPTIONS_FIELD_COLOR"
+			/>
+        </fieldset>
+    </fields>
+</form>

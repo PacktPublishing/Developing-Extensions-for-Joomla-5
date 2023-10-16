@@ -10,25 +10,26 @@ use Joomla\DI\ServiceProviderInterface;
 use Piedpiper\Component\Spm\Administrator\Extension\SpmComponent;
 use Joomla\CMS\Extension\Service\Provider\RouterFactory;
 use Joomla\CMS\Component\Router\RouterFactoryInterface;
+use Joomla\CMS\Categories\CategoryFactoryInterface;
 
 return new class implements ServiceProviderInterface
 {
-	public function register(Container $container)
-	{
+    public function register(Container $container)
+    {
         $container->registerServiceProvider(new MVCFactory('\\Piedpiper\\Component\\Spm'));
         $container->registerServiceProvider(new ComponentDispatcherFactory('\\Piedpiper\\Component\\Spm'));
         $container->registerServiceProvider(new RouterFactory('\\Piedpiper\\Component\\Spm'));
 
         $container->set(
             ComponentInterface::class,
-            function (Container $container)
-            {
+            function (Container $container) {
                 $component = new SpmComponent($container->get(ComponentDispatcherFactoryInterface::class));
                 $component->setMVCFactory($container->get(MVCFactoryInterface::class));
                 $component->setRouterFactory($container->get(RouterFactoryInterface::class));
+                $component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
 
                 return $component;
             }
         );
-	}
+    }
 };

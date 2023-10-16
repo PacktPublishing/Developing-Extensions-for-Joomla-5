@@ -6,13 +6,15 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\MVC\Model\ListModel;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Categories\Categories;
+use Joomla\CMS\Categories\CategoryNode;
+
 
 class ProjectsModel extends ListModel
 {
     public function __construct($config = array())
     {
-        if (empty($config['filter_fields']))
-        {
+        if (empty($config['filter_fields'])) {
             $config['filter_fields'] = array(
                 'id', 'a.id',
                 'name', 'a.name',
@@ -54,8 +56,7 @@ class ProjectsModel extends ListModel
 
         $search = $this->getState('filter.search');
 
-        if (!empty($search))
-        {
+        if (!empty($search)) {
             $search = $db->quote('%' . str_replace(' ', '%', $db->escape(trim($search), true) . '%'));
             $query->where('(a.name LIKE ' . $search . ')');
         }
@@ -66,4 +67,18 @@ class ProjectsModel extends ListModel
         $query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
         return $query;
     }
+
+    public function getItems()
+    {
+        $items = parent::getItems();
+        $categories = Categories::getInstance('spm');
+
+        foreach ($items as &$item) {
+            $item->category = $categories->get($item->category);
+            $item->color = $item->category->getParams()->get('color');
+        }
+
+        return $items;
+    }
+
 }
