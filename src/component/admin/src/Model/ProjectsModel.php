@@ -50,6 +50,7 @@ class ProjectsModel extends ListModel
                     $db->quoteName('a.id'),
                     $db->quoteName('a.name'),
                     $db->quoteName('a.deadline'),
+                    $db->quoteName('a.category')
                 ]
             )
         )->from($db->quoteName('#__spm_projects', 'a'));
