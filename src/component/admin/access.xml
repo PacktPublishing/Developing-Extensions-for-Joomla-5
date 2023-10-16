@@ -7,5 +7,8 @@
         <action name="core.create" title="JACTION_CREATE" />
         <action name="core.delete" title="JACTION_DELETE" />
         <action name="core.edit" title="JACTION_EDIT" />
+        <action name="invoice.create" title="COM_SPM_ACTION_INVOICE_CREATE" />
+        <action name="invoice.edit" title="COM_SPM_ACTION_INVOICE_EDIT" />
+        <action name="task.create" title="COM_SPM_ACTION_TASK_CREATE" />
     </section>
 </access>
