@@ -23,6 +23,11 @@ class HtmlView extends BaseHtmlView
         $this->filterForm    = $this->get('FilterForm');
         $this->activeFilters = $this->get('ActiveFilters');
 
+        $user = Factory::getApplication()->getIdentity();
+        if (!$user->authorise(‘core.manage’,’com_spm’)){
+                throw new GenericDataException(‘Not allowed’, 403);
+        }
+
         if (count($errors = $this->get('Errors'))) {
             throw new GenericDataException(implode("\n", $errors), 500);
         }
