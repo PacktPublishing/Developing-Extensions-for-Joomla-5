@@ -5,6 +5,7 @@ namespace Piedpiper\Component\Spm\Administrator\Model;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\AdminModel;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Form\Form;
 
 class CustomerModel extends AdminModel
 {
@@ -27,7 +28,7 @@ class CustomerModel extends AdminModel
         if (empty($data)) {
             $data = $this->getItem();
         }
-
+        $this->preprocessData('com_spm.customer', $data);
         return $data;
     }
 

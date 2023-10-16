@@ -27,6 +27,22 @@ HTMLHelper::_('behavior.keepalive');
                 </div>
             </div>
         </div>
+        <fieldset name=”custom_fields”>
+            <div class=”row”>
+                <div class=”col-md-9”>
+                    <div class=”row”>
+                        <div class=”col-md-6”>
+                            <?php foreach($this->form->getFieldsets() as $name => $fieldset): ?>
+                                <?php foreach($this->form->getFieldSet($name) as $field) :?>
+                                    <?php echo $field->renderField(); ?>
+                                <?php endforeach;?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
     </div>
     <input type="hidden" name="task" value="">
     <?php echo HTMLHelper::_('form.token'); ?>

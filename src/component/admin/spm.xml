@@ -25,6 +25,12 @@
             <menu link="option=com_spm&amp;view=projects" img="default">
                     COM_SPM_PROJECTS
             </menu>
+			<menu link="option=com_fields&amp;context=com_spm.project" img="default">
+				JGLOBAL_FIELDS
+			</menu>
+			<menu link="option=com_fields&amp;view=groups&amp;context=com_spm.project" img="default">
+				JGLOBAL_FIELD_GROUPS
+			</menu>
 			<menu link="option=com_categories&amp;view=categories&amp;extension=com_spm" img="default">
 					COM_SPM_PROJECT_CATEGORIES
 			</menu>
