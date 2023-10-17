@@ -13,53 +13,60 @@ use Joomla\CMS\Menu\AbstractMenu;
 
 class Router extends RouterView
 {
-	private $db;
+    private $db;
 
-	public function __construct(SiteApplication $app, AbstractMenu $menu, $category, DatabaseInterface $db)
-	{
-		$this->db = $db;
+    public function __construct(SiteApplication $app, AbstractMenu $menu, $category, DatabaseInterface $db)
+    {
+        $this->db = $db;
 
-		$projects = new RouterViewConfiguration('projects');
-		$this->registerView($projects);
+        $projects = new RouterViewConfiguration('projects');
+        $this->registerView($projects);
 
-		$project = new RouterViewConfiguration('project');
-		$project->setKey('id')->setParent($projects);
-		$this->registerView($project);
+        $project = new RouterViewConfiguration('project');
+        $project->setKey('id')->setParent($projects);
+        $this->registerView($project);
 
-		parent::__construct($app, $menu);
+        $customers = new RouterViewConfiguration('customers');
+        $this->registerView($customers);
 
-		$this->attachRule(new MenuRules($this));
-		$this->attachRule(new StandardRules($this));
-		$this->attachRule(new NomenuRules($this));
-	}
+        $customer = new RouterViewConfiguration('customer');
+        $customer->setKey('id')->setParent($customers);
+        $this->registerView($customer);
 
-	public function getProjectSegment($key, $urlQuery)
-	{
-		$id = (int) $id;
-		$query = $this->db->getQuery(true);
+        parent::__construct($app, $menu);
 
-		$query->select($this->db->quoteName('alias'))
-				->from('#__spm_projects')
-				->where($this->db->quoteName('id') . ' = ' . (int) $key);
+        $this->attachRule(new MenuRules($this));
+        $this->attachRule(new StandardRules($this));
+        $this->attachRule(new NomenuRules($this));
+    }
 
-		$this->db->setQuery($query);
-		$id = $this->db->loadResult();
+    public function getProjectSegment($key, $urlQuery)
+    {
+        $id = (int) $key;
+        $query = $this->db->getQuery(true);
 
-		return [$id];
-	}
+        $query->select($this->db->quoteName('alias'))
+            ->from('#__spm_projects')
+            ->where($this->db->quoteName('id') . ' = ' . (int) $key);
 
-	public function getProjectId($segment, $urlQuery)
-	{
-		$query = $this->db->getQuery(true);
+        $this->db->setQuery($query);
+        $id = $this->db->loadResult();
 
-		$query->select($this->db->quoteName('id'))
-				->from('#__spm_projects')
-				->where($this->db->quoteName('alias') . ' = :alias')
-				->bind(':alias', $segment);;
+        return [$id];
+    }
 
-		$this->db->setQuery($query);
+    public function getProjectId($segment, $urlQuery)
+    {
+        $query = $this->db->getQuery(true);
 
-		return (int) $this->db->loadResult();
-	}
+        $query->select($this->db->quoteName('id'))
+            ->from('#__spm_projects')
+            ->where($this->db->quoteName('alias') . ' = :alias')
+            ->bind(':alias', $segment);;
+
+        $this->db->setQuery($query);
+
+        return (int) $this->db->loadResult();
+    }
 }
 

@@ -6,6 +6,7 @@ namespace Piedpiper\Component\Spm\Administrator\View\Invoices;
 
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\MVC\View\GenericDataException;
+Use Joomla\CMS\Factory;
 
 class HtmlView extends BaseHtmlView
 {

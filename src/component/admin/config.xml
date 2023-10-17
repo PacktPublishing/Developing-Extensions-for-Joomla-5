@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
 	<fieldset
-		name=""
+		name="spm_config"
 		label="COM_SPM_CONFIG_FIELDSET_COMPANY_DATA"
 	>
 		<field
@@ -20,5 +20,17 @@
 			description="COM_SPM_CONFIG_COMPANY_ID_DESCRIPTION"
 		/>
 	</fieldset>
+	<fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL">
+		<field
+			name="rules"
+			type="rules"
+			label="JCONFIG_PERMISSIONS_LABEL"
+			filter="rules"
+			validate="rules"
+			component="com_spm"
+			section="component"
+		/>
+	</fieldset>
+
 </config>
 
