@@ -37,6 +37,15 @@ class ProjectsModel extends ListModel
             )
         )->from($db->quoteName('#__spm_projects', 'a'));
 
+        $id_customer = $this->state->get('filter.customer', 0);
+        if ($id_customer) {
+            $query->where(
+                $db->quoteName('a.id_customer')
+                    . ' = ' . (int) $id_customer
+            );
+        }
+
+
         $orderCol  = $this->state->get('list.ordering', 'a.name');
         $orderDirn = $this->state->get('list.direction', 'ASC');
 

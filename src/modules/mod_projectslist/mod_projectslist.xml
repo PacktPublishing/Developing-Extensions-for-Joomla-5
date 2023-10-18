@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+    <name>MOD_SPM_PROJECTSLIST</name>
+    <author><![CDATA[Carlos Cámara]]></author>
+    <authorEmail>carlos@hepta.es</authorEmail>
+    <authorUrl>extensions.hepta.es</authorUrl>
+    <creationDate>2022-07-21</creationDate>
+    <copyright>(C) 2022 Piedpiper Inc.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>0.1.0</version>
+    <description><![CDATA[MOD_SPM_PROJECTSLIST_DESCRIPTION]]></description>
+    <namespace path="src">Piedpiper\Module\ProjectsList</namespace>
+    <files>
+        <folder module="mod_projectslist">services</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/mod_projectslist.ini</language>
+        <language tag="en-GB">language/en-GB/mod_projectslist.sys.ini</language>
+    </languages>
+	<config>
+    <fields name="params">
+    		<fieldset name="basic">
+        			<field name="customer"
+            			type="sql"
+            			label="MOD_SPM_PROJECTSLIST_CONFIG_CUSTOMER_LABEL"
+						description="MOD_SPM_PROJECTSLIST_CONFIG_CUSTOMER_DESCRIPTION"
+						header="MOD_SPM_PROJECTSLIST_CONFIG_CUSTOMER_ALL"
+            			multiple="multiple"
+            			sql_select="id, CONCAT(firstname, ' ', lastname) AS name"
+            			sql_from="#__spm_customers"
+            			key_field="id"
+						value_field="name"
+            			sql_order="lastname ASC"
+        			/>
+					<field name="total"
+            			type="number"
+            			label="MOD_SPM_PROJECTSLIST_CONFIG_TOTAL_LABEL"
+             	 	 	 description="MOD_SPM_PROJECTSLIST_CONFIG_TOTAL_DESCRIPTION"
+            			default="5"
+            			filter="integer"
+            			min="1" max="5"
+            			validate="number"
+        			/>
+     		</fieldset>
+			<fieldset name="advanced">
+    			<field
+        			name="layout"
+        			type="modulelayout"
+        			label="JFIELD_ALT_LAYOUT_LABEL"
+        			class="form-select"
+        			validate="moduleLayout"
+    			/>
+    			<field
+        			name="moduleclass_sfx"
+        			type="textarea"
+        			label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+        			rows="3"
+        			validate="CssIdentifier"
+    			/>
+    			<field
+        			name="cache"
+        			type="list"
+        			label="COM_MODULES_FIELD_CACHING_LABEL"
+        			default="1"
+        			filter="integer"
+        			validate="options"
+        			>
+        			<option value="1">JGLOBAL_USE_GLOBAL</option>
+        			<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+    			</field>
+    			<field
+        			name="cache_time"
+        			type="number"
+        			label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+        			default="900"
+        			filter="integer"
+    			/>
+			</fieldset>
+    	</fields>
+	</config>
+</extension>
