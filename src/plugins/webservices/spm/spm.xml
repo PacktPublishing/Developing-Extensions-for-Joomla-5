@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension type="plugin" group="webservices" method="upgrade">
+    <name>plg_webservices_spm</name>
+    <author>Carlos Cámara</author>
+    <creationDate>January 2023</creationDate>
+    <copyright>Copyright 2023 PiedPiper Inc.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>carlos@hepta.es</authorEmail>
+    <authorUrl>www.packt.com</authorUrl>
+    <version>1.0.0</version>
+    <description>PLG_WEBSERVICES_SPM_XML_DESCRIPTION</description>
+
+    <files>
+        <filename plugin="spm">spm.php</filename>
+    </files>
+
+</extension>

@@ -61,4 +61,9 @@
     <languages folder="site">
         <language tag="en-GB">language/en-GB/com_spm.ini</language>
     </languages>
+    <api>
+    	<files folder="api/components/com_spm">
+        	<folder>src</folder>
+    	</files>
+	</api>
 </extension>
