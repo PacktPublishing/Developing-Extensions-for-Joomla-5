@@ -58,4 +58,7 @@
         <folder>js</folder>
         <filename>joomla.asset.json</filename>
     </media>
+    <languages folder="site">
+        <language tag="en-GB">language/en-GB/com_spm.ini</language>
+    </languages>
 </extension>
