@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="content" method="upgrade">
+    <name>plg_content_projectlink</name>
+    <author>Carlos Cámara</author>
+    <creationDate>2023-05</creationDate>
+    <copyright>(C) 2023 Piedpiper, Inc.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>carlos@hepta.es</authorEmail>
+    <authorUrl>https://extensions.hepta.es</authorUrl>
+    <version>1.0.0</version>
+    <description>PLG_CONTENT_PROJECTLINK_XML_DESCRIPTION</description>
+    <namespace path="src">Piedpiper\Plugin\Content\ProjectLink</namespace>
+    <files>
+        <folder plugin="projectlink">services</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_content_projectlink.ini</language>
+        <language tag="en-GB">language/en-GB/plg_content_projectlink.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+            </fieldset>
+        </fields>
+    </config>
+</extension>
