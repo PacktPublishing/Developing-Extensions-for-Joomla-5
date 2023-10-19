@@ -5,6 +5,8 @@ namespace Piedpiper\Plugin\Content\ProjectLink\Helper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\CMS\Layout\LayoutHelper;
 
 
 class LinkHelper
@@ -30,7 +32,16 @@ class LinkHelper
             $item->url = Route::_(
                 'index.php?option=com_spm&view=project&id=' . $item->id
             );
-            $link = '<a href="' . $item->url . '">' . $item->name .'</a>';
+            $layoutFile = PluginHelper::getLayoutPath(
+                'content',
+                'projectlink',
+                'link'
+            );
+
+            ob_start();
+            include $layoutFile;
+            $link = ob_get_clean();
+
         }
 
         return $link;
