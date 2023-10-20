@@ -14,4 +14,9 @@
         <folder plugin="spm">services</folder>
         <folder>src</folder>
     </files>
+	<languages>
+        <language tag="en-GB">language/en-GB/plg_console_spm.ini</language>
+        <language tag="en-GB">language/en-GB/plg_console_spm.sys.ini</language>
+    </languages>
+
 </extension>

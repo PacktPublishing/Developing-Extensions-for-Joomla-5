@@ -10,6 +10,8 @@ use Piedpiper\Plugin\Console\Spm\CliCommand\SpmTaskDeadlineCommand;
 
 class SpmConsolePlugin extends CMSPlugin implements SubscriberInterface
 {
+    protected $autoloadLanguage = true;
+
     public static function getSubscribedEvents(): array
     {
         return [

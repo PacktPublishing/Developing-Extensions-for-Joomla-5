@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Joomla\Console\Command\AbstractCommand;
+use Joomla\CMS\Language\Text;
 
 class SpmTaskDeadlineCommand extends AbstractCommand
 {
@@ -14,47 +15,46 @@ class SpmTaskDeadlineCommand extends AbstractCommand
 
     protected function configure(): void
     {
-        $this->setDescription('List upcoming task deadlines');
-        $this->setHelp(
-            'The <info>$command.name%</info> command lists all the tasks with upcoming deadlines. <info>php
-%command.full_name%</info>'
-        );
+        $this->setDescription(Text::_('PLG_CONSOLE_SPM_TASK_DEADLINE_DESCRIPTION'));
+        $this->setHelp(Text::_('PLG_CONSOLE_SPM_TASK_DEADLINE_HELP'));
     }
 
-    protected function getDeadlines() : array
-    {
-        $deadlines = [];
+}
 
-        $days = 7;
+protected function getDeadlines() : array
+{
+    $deadlines = [];
 
-        $db = $this->getDatabase();
-        $query = $db->getQuery(true);
-        $query->select('*')
-            ->from('#__spm_tasks');
+    $days = 7;
 
-        $query->where('deadline BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL ' . $days .' DAY)');
+    $db = $this->getDatabase();
+    $query = $db->getQuery(true);
+    $query->select('*')
+        ->from('#__spm_tasks');
 
-        $query->setQuery($query);
+    $query->where('deadline BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL ' . $days .' DAY)');
 
-        $deadlines = $db->loadAssocList('id');
+    $query->setQuery($query);
 
-        return $deadlines;
+    $deadlines = $db->loadAssocList('id');
+
+    return $deadlines;
+}
+
+protected function doExecute(InputInterface $input, OutputInterface $output):  int
+{
+    $outputStyle = new SymfonyStyle($input, $output);
+    $outputStyle->title(Text::_('PLG_CONSOLE_SPM_TASK_DEADLINE_TITLE'));
+
+    $deadlines = $this->getDeadlines();
+
+    if (empty($deadlines)) {
+        $outputStyle->note(Text::_('PLG_CONSOLE_SPM_TASK_DEADLINE_NO_DEADLINE'));
+    } else {
+        $outputStyle->table([Text::_('PLG_CONSOLE_SPM_TASK_DEADLINE_DEADLINE_HEADER'), 'Project', 'Task'], $deadlines);
     }
 
-    protected function doExecute(InputInterface $input, OutputInterface $output):  int
-    {
-        $outputStyle = new SymfonyStyle($input, $output);
-        $outputStyle->title('Simple Project Manager Upcoming Deadlines');
 
-        $deadlines = $this->getDeadlines();
-
-        if (empty($deadlines)) {
-            $outputStyle->note('There is no upcoming deadlines');
-        } else {
-            $outputStyle->table(['Deadline', 'Project', 'Task'], $deadlines);
-        }
-
-
-        return Command::SUCCESS;
-    }
+    return Command::SUCCESS;
+}
 }
