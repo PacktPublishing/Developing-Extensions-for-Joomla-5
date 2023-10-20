@@ -49,9 +49,9 @@ class SpmTaskDeadlineCommand extends AbstractCommand
         $deadlines = $this->getDeadlines();
 
         if (empty($deadlines)) {
-            $this->outputStyle->note('There is no upcoming deadlines');
+            $outputStyle->note('There is no upcoming deadlines');
         } else {
-            $this->outputStyle->table(['Deadline', 'Project', 'Task'], $deadlines);
+            $outputStyle->table(['Deadline', 'Project', 'Task'], $deadlines);
         }
 
 
