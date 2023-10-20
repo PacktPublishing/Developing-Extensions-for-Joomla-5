@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="console" method="upgrade">
+    <name>plg_console_spm</name>
+    <author>Carlos Cámara</author>
+    <creationDate>2023-05</creationDate>
+    <copyright>(C) 2023 Piedpiper, Inc.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>carlos@hepta.es</authorEmail>
+    <authorUrl>https://extensions.hepta.es</authorUrl>
+    <version>1.0.0</version>
+    <description>PLG_CONSOLE_SPM_XML_DESCRIPTION</description>
+    <namespace path="src">Piedpiper\Plugin\Console\Spm</namespace>
+    <files>
+        <folder plugin="spm">services</folder>
+        <folder>src</folder>
+    </files>
+</extension>
