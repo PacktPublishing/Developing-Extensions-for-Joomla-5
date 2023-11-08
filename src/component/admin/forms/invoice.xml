@@ -4,6 +4,7 @@
         name="number"
         type="text"
         label="COM_SPM_INVOICE_NUMBER"
+        filter="alnum"
         />
     <field
         name="amount"
@@ -13,6 +14,7 @@
         class="validate-notzero"
         required="true"
         pattern="[0-9]{1,}(\.[0-9]{1,2})?"
+        filter="float"
         />
     <field
         name="items"
@@ -23,5 +25,6 @@
         name="customer"
         type="text"
         label="COM_SPM_INVOICE_CUSTOMER"
+        filter="int"
         />
 </form>
