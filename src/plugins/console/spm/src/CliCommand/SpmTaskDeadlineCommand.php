@@ -9,6 +9,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Joomla\Console\Command\AbstractCommand;
 use Joomla\CMS\Language\Text;
 use Symfony\Component\Console\Input\InputOption;
+use Joomla\Database\DatabaseInterface;
 use Joomla\CMS\Factory;
 
 class SpmTaskDeadlineCommand extends AbstractCommand
@@ -35,7 +36,7 @@ class SpmTaskDeadlineCommand extends AbstractCommand
 
     protected function getDatabase()
     {
-        $db = Factory::getDbo();
+        $db = Factory::getContainer()->get(DatabaseInterface::class);
 
          return $db;
     }
