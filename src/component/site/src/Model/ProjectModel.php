@@ -39,7 +39,8 @@ class ProjectModel extends BaseDatabaseModel
 
         $query->select('*')
               ->from($db->quoteName('#__spm_projects', 'a'))
-              ->where('a.id = ' . (int) $id);
+          	  ->where('a.id = :userid');
+		$query->bind(':userid', (int) $id);
 
         $db->setQuery($query);
 
