@@ -1,0 +1,35 @@
+.logo-icon{
+    display: none;
+}
+
+.header{
+    background-color: #1E8d38;
+    padding: 2rem;
+}
+
+.outer{
+    margin: 2rem auto;
+    padding: 0rem 0 2rem 0;
+    border: 2px solid #1E8d38;
+    background-color: #2F9E49;
+    color: white;
+}
+
+.login{
+    padding: 1rem 2rem;
+}
+
+.btn{
+    background-color: #0d7e27;
+    border-color: #0d7e27;
+    color: white;
+}
+
+.btn:hover,
+.btn:focus{
+    background-color: #1E8d38;
+    border-color: #1E8d38;
+    color: white;
+    outline-color: white;
+}
+
