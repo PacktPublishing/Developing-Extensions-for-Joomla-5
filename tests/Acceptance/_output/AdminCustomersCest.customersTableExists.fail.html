@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="generator" content="Joomla! - Open Source Content Management">
+	<title>J4 Testing - Administration</title>
+	<link href="/media/system/images/joomla-favicon.svg" rel="icon" type="image/svg+xml">
+	<link href="/media/system/images/favicon.ico" rel="alternate icon" type="image/vnd.microsoft.icon">
+	<link href="/media/system/images/joomla-favicon-pinned.svg" rel="mask-icon" color="#000">
+
+    <link href="/media/templates/administrator/atum/css/vendor/fontawesome-free/fontawesome.min.css?5.15.4" rel="stylesheet" />
+	<link href="/media/plg_system_webauthn/css/button.min.css?4152852c3e8e69708741d4c4c0b13674" rel="stylesheet" />
+	<link href="/media/templates/administrator/atum/css/template.min.css?4152852c3e8e69708741d4c4c0b13674" rel="stylesheet" />
+	<link href="/media/templates/administrator/atum/css/vendor/joomla-custom-elements/joomla-alert.min.css?0.2.0" rel="stylesheet" />
+	<style>:root {
+		--hue: 214;
+		--template-bg-light: #f0f4fb;
+		--template-text-dark: #495057;
+		--template-text-light: #ffffff;
+		--link-color: #2a69b8;
+		--template-special-color: #001b4c;
+	}</style>
+
+    <script src="/media/vendor/hotkeysjs/js/hotkeys.min.js?3.12.0" defer></script>
+	<script type="application/json" class="joomla-script-options new">{"joomla.jtext":{"PLG_SYSTEM_WEBAUTHN_ERR_CANNOT_FIND_USERNAME":"Cannot find the username field in the login module. Sorry, Passwordless authentication will not work on this site unless you use a different login module.","PLG_SYSTEM_WEBAUTHN_ERR_EMPTY_USERNAME":"You need to enter your username (but NOT your password) before selecting the Web Authentication login button.","PLG_SYSTEM_WEBAUTHN_ERR_INVALID_USERNAME":"The specified username does not correspond to a user account that has enabled passwordless login on this site.","JSHOWPASSWORD":"Show Password","JHIDEPASSWORD":"Hide Password","JGLOBAL_WARNCOOKIES":"Warning! Cookies must be enabled to access the Administrator Backend.","ERROR":"Error","MESSAGE":"Message","NOTICE":"Notice","WARNING":"Warning","JCLOSE":"Close","JOK":"OK","JOPEN":"Open","JLIB_FORM_CONTAINS_INVALID_FIELDS":"The form cannot be submitted as it's missing required data. <br> Please correct the marked fields and try again.","JLIB_FORM_FIELD_REQUIRED_VALUE":"Please fill in this field","JLIB_FORM_FIELD_REQUIRED_CHECK":"One of the options must be selected","JLIB_FORM_FIELD_INVALID_VALUE":"This value is not valid","PLG_SYSTEM_SHORTCUT_OVERVIEW_HINT":"<span class=\"icon-keyboard fa-keyboard me-2\" aria-hidden=\"true\"><\/span> <kbd>J<\/kbd> <small>then<\/small> <kbd>X<\/kbd> <small>Keyboard Shortcuts<\/small>","PLG_SYSTEM_SHORTCUT_OVERVIEW_TITLE":"Joomla Keyboard Shortcuts","PLG_SYSTEM_SHORTCUT_OVERVIEW_DESC":"Press <kbd>J<\/kbd> to access the shortcut mode followed by the shortcut.","PLG_SYSTEM_SHORTCUT_THEN":"then"},"skipto-settings":{"settings":{"skipTo":{"enableActions":false,"enableHeadingLevelShortcuts":false,"accesskey":"9","displayOption":"popup","buttonLabel":"Keyboard Navigation","buttonTooltipAccesskey":"Access key is $key","landmarkGroupLabel":"Landmarks","headingGroupLabel":"Page Outline","mofnGroupLabel":" ($m of $n)","headingLevelLabel":"Heading level","mainLabel":"Main","searchLabel":"Search","navLabel":"Navigation","regionLabel":"Region","asideLabel":"Aside","footerLabel":"Footer","headerLabel":"Header","formLabel":"Form","msgNoLandmarksFound":"No landmarks to skip to","msgNoHeadingsFound":"No headings to skip to","headings":"h1, h2, h3","landmarks":"main, nav, search, aside, header, footer, form"}}},"system.paths":{"root":"","rootFull":"https:\/\/j4.ddev.site\/","base":"\/administrator","baseFull":"https:\/\/j4.ddev.site\/administrator\/"},"csrf.token":"6b023fd150335522c79b19b0d8141cbd","system.keepalive":{"interval":840000,"uri":"\/administrator\/index.php"},"plg_system_shortcut.shortcuts":{"applyKey":{"selector":"joomla-toolbar-button .button-apply","shortcut":"A","title":"Save"},"saveKey":{"selector":"joomla-toolbar-button .button-save","shortcut":"S","title":"Save &amp; Close"},"cancelKey":{"selector":"joomla-toolbar-button .button-cancel","shortcut":"Q","title":"Cancel"},"newKey":{"selector":"joomla-toolbar-button .button-new","shortcut":"N","title":"New"},"searchKey":{"selector":"input[placeholder=Search]","shortcut":"F","title":"Search"},"optionKey":{"selector":"joomla-toolbar-button .button-options","shortcut":"O","title":"Options"},"helpKey":{"selector":"joomla-toolbar-button .button-help","shortcut":"H","title":"Help"},"toggleMenu":{"selector":"#menu-collapse","shortcut":"M","title":"Toggle Menu"},"dashboard":{"selector":"\/administrator\/index.php","shortcut":"D","title":"Home Dashboard"}},"plg_system_shortcut.timeout":2000}</script>
+	<script src="/media/system/js/core.min.js?4152852c3e8e69708741d4c4c0b13674"></script>
+	<script src="/media/system/js/keepalive-es5.min.js?4152852c3e8e69708741d4c4c0b13674" defer nomodule></script>
+	<script src="/media/system/js/fields/validate.min.js?4152852c3e8e69708741d4c4c0b13674" defer></script>
+	<script src="/media/templates/administrator/atum/js/template-es5.min.js?4152852c3e8e69708741d4c4c0b13674" nomodule defer></script>
+	<script src="/media/vendor/bootstrap/js/bootstrap-es5.min.js?5.3.2" nomodule defer></script>
+	<script src="/media/system/js/messages-es5.min.js?4152852c3e8e69708741d4c4c0b13674" nomodule defer></script>
+	<script src="/media/plg_system_webauthn/js/login.min.js?4152852c3e8e69708741d4c4c0b13674" defer></script>
+	<script src="/media/system/js/keepalive.min.js?4152852c3e8e69708741d4c4c0b13674" type="module"></script>
+	<script src="/media/system/js/fields/passwordview.min.js?4152852c3e8e69708741d4c4c0b13674" defer></script>
+	<script src="/media/mod_login/js/admin-login.min.js?4152852c3e8e69708741d4c4c0b13674" defer></script>
+	<script src="/media/vendor/skipto/js/skipto.min.js?4.1.7" defer></script>
+	<script src="/media/templates/administrator/atum/js/template.min.js?4152852c3e8e69708741d4c4c0b13674" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/dropdown.min.js?5.3.2" type="module"></script>
+	<script src="/media/system/js/messages.min.js?4152852c3e8e69708741d4c4c0b13674" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/modal.min.js?5.3.2" type="module"></script>
+	<script src="/media/plg_system_shortcut/js/shortcut.min.js?4152852c3e8e69708741d4c4c0b13674"></script>
+
+</head>
+
+<body class="admin com_login view-login layout-default">
+
+    <noscript>
+        <div class="alert alert-danger" role="alert">
+            Warning! JavaScript must be enabled for proper operation of the Administrator Backend.        </div>
+    </noscript>
+    
+    <header id="header" class="header d-flex">
+        <div class="header-title d-flex">
+            <div class="d-flex align-items-center">
+                <div class="logo">
+                    <img loading="eager" decoding="async" src="https://j4.ddev.site/media/templates/administrator/atum/images/logos/brand-large.svg" alt="">                    <img class="logo-collapsed" loading="eager" decoding="async" src="https://j4.ddev.site/media/templates/administrator/atum/images/logos/brand-small.svg" alt="">                </div>
+            </div>
+            
+        </div>
+        <div class="header-items d-flex ms-auto">
+    <div class="header-item"><a href="https://j4.ddev.site/" class="header-item-content"
+    title="Open frontend of J4 Testing in a new window."
+    target="_blank">
+    <div class="header-item-icon">
+        <span class="icon-external-link-alt" aria-hidden="true"></span>
+    </div>
+    <div class="header-item-text">
+        J4 Testing    </div>
+</a>
+</div>    <div class="header-more d-none" id="header-more-items" >
+        <button class="header-more-btn dropdown-toggle" type="button" title="More Elements" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="header-item-icon"><span class="icon-ellipsis-h" aria-hidden="true"></span></div>
+            <div class="visually-hidden">More Elements</div>
+        </button>
+        <div class="header-dd-items dropdown-menu">
+            <div class="header-dd-item dropdown-item" data-item="0"><a href="https://j4.ddev.site/" class="header-item-content"
+    title="Open frontend of J4 Testing in a new window."
+    target="_blank">
+    <div class="header-item-icon">
+        <span class="icon-external-link-alt" aria-hidden="true"></span>
+    </div>
+    <div class="header-item-text">
+        J4 Testing    </div>
+</a>
+</div>        </div>
+    </div>
+</div>
+    </header>
+
+    <div id="wrapper" class="wrapper flex-grow-1">
+        <div class="container-fluid container-main">
+            <section id="content" class="content h-100">
+                <div class="login_message">
+                    <div id="system-message-container" aria-live="polite"></div>
+
+                </div>
+                <main class="d-flex justify-content-center align-items-center h-100">
+                    <div class="login">
+                        <div class="main-brand logo text-center">
+                            <img loading="eager" decoding="async" src="https://j4.ddev.site/media/templates/administrator/atum/images/logos/login.svg" alt="">                        </div>
+                        <form class="form-validate" action="/administrator/index.php" method="post" id="form-login">
+    <fieldset>
+        <legend class="visually-hidden">Login Form</legend>
+        <div class="form-group">
+            <label for="mod-login-username">
+                Username            </label>
+            <div class="input-group">
+
+                <input
+                    name="username"
+                    id="mod-login-username"
+                    type="text"
+                    class="form-control"
+                    required="required"
+                    autofocus
+                    autocomplete="username"
+                >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mod-login-password">
+                Password            </label>
+            <div class="input-group">
+
+                <input
+                    name="passwd"
+                    id="mod-login-password"
+                    type="password"
+                    class="form-control input-full"
+                    required="required"
+                    autocomplete="current-password"
+                >
+                <button type="button" class="btn btn-primary input-password-toggle">
+                    <span class="icon-eye icon-fw" aria-hidden="true"></span>
+                    <span class="visually-hidden">Show Password</span>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="mt-4">
+                                    <div class="form-group">
+                <button type="button"
+                        class="btn btn-secondary w-100 plg_system_webauthn_login_button"
+                                                    data-webauthn-form="form-login"
+                                                                        title="Web Authentication"
+                        id="plg_system_webauthn-alriuhKP84Oc-T6wfs09T"
+                >
+                                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2.5em"><path fill="currentColor" d="M15.287 3.63a8.407 8.407 0 00-8.051 7.593h.55a7.805 7.805 0 012.24-4.713 5.825 5.825 0 00.924.695c-.608 1.177-.98 2.556-1.082 4.018h.135c.105-1.467.485-2.819 1.065-3.947.745.434 1.623.754 2.577.94a27.83 27.83 0 00-.25 3.763h-.847v.135h.847c.003 1.334.09 2.617.25 3.764-.954.185-1.832.506-2.577.94a9.997 9.997 0 01-.978-3.137h-.137c.164 1.16.502 2.25.997 3.208a5.825 5.825 0 00-.924.695 7.805 7.805 0 01-2.255-4.875H7.22A8.407 8.407 0 0024 12.034a8.398 8.398 0 00-.688-3.333 8.407 8.407 0 00-8.025-5.072zm.315.546c.155 0 .31.005.464.014.365.34.708 1.07.983 2.114a16.518 16.518 0 01.357 1.79 10.173 10.173 0 01-1.804.16 10.173 10.173 0 01-1.805-.16 16.519 16.519 0 01.357-1.79c.275-1.045.618-1.775.983-2.114a7.97 7.97 0 01.465-.014zm-.665.028c-.345.392-.658 1.093-.913 2.065a16.639 16.639 0 00-.36 1.8c-.939-.183-1.802-.498-2.533-.926.686-1.283 1.635-2.264 2.73-2.775a7.874 7.874 0 011.076-.164zm1.33 0a7.856 7.856 0 011.084.168c1.092.513 2.037 1.492 2.721 2.771-.73.428-1.594.743-2.533.927a16.64 16.64 0 00-.36-1.8c-.255-.972-.568-1.673-.912-2.066zm-2.972.314c-.655.407-1.257.989-1.776 1.73a8.166 8.166 0 00-.506.825 5.69 5.69 0 01-.891-.67 7.814 7.814 0 013.173-1.885zm4.624.006a7.862 7.862 0 013.164 1.877 5.692 5.692 0 01-.893.672 8.166 8.166 0 00-.506-.825c-.516-.738-1.115-1.318-1.765-1.724zm3.26 1.985a7.858 7.858 0 011.638 2.419 7.802 7.802 0 01.642 3.051h-2.095c-.01-1.74-.398-3.396-1.11-4.774a5.823 5.823 0 00.925-.696zm-1.044.767c.679 1.32 1.084 2.945 1.094 4.703h-3.42a27.863 27.863 0 00-.251-3.763c.954-.186 1.833-.506 2.577-.94zm-6.357.965a10.299 10.299 0 001.824.16 10.299 10.299 0 001.823-.16c.16 1.138.246 2.413.249 3.738h-1.178a1.03 1.03 0 01-.093.135h1.27a27.71 27.71 0 01-.248 3.739 10.397 10.397 0 00-3.647 0 27.733 27.733 0 01-.248-3.739h1.294a.99.99 0 01-.09-.135H13.53c.003-1.325.088-2.6.248-3.738zM2.558 9.37a2.585 2.585 0 00-2.547 2.35c-.142 1.541 1.064 2.842 2.566 2.842 1.26 0 2.312-.917 2.533-2.124h4.44v.972h.946v-.972h.837v1.431h.945v-2.376H5.11A2.586 2.586 0 002.558 9.37zm-.058.965a1.639 1.639 0 011.707 1.637 1.64 1.64 0 01-1.639 1.638 1.639 1.639 0 01-.068-3.275zm13.09.388a.75.75 0 00-.345 1.404l-.383 1.958h1.5l-.383-1.958a.75.75 0 00.384-.654.75.75 0 00-.773-.75zm2.218 1.391h3.421c-.01 1.758-.415 3.384-1.094 4.704-.744-.434-1.623-.755-2.577-.94a27.81 27.81 0 00.25-3.764zm3.556 0h2.095a7.805 7.805 0 01-2.281 5.47 5.825 5.825 0 00-.924-.696c.712-1.378 1.1-3.033 1.11-4.774zm-5.52 3.703a10.284 10.284 0 011.562.156 16.518 16.518 0 01-.357 1.791c-.275 1.045-.618 1.774-.982 2.114a7.972 7.972 0 01-.93 0c-.365-.34-.708-1.07-.983-2.114a16.519 16.519 0 01-.357-1.79 10.284 10.284 0 012.048-.157zm1.695.181c.94.184 1.803.5 2.533.926-.686 1.284-1.635 2.265-2.73 2.776a7.874 7.874 0 01-1.075.164c.344-.393.657-1.094.913-2.065a16.64 16.64 0 00.359-1.8zm-3.874 0a16.648 16.648 0 00.359 1.8c.255.973.568 1.674.913 2.066a7.873 7.873 0 01-1.075-.164c-1.096-.511-2.045-1.492-2.731-2.775.73-.428 1.594-.743 2.534-.927zm-2.652.997a8.16 8.16 0 00.506.825c.52.741 1.121 1.323 1.776 1.73a7.814 7.814 0 01-3.174-1.884 5.694 5.694 0 01.892-.67zm9.178 0a5.694 5.694 0 01.891.67 7.814 7.814 0 01-3.173 1.885c.654-.407 1.256-.989 1.775-1.73a8.16 8.16 0 00.507-.825z"></path></svg>
+                                        Web Authentication                </button>
+            </div>
+                        <div class="form-group">
+                <button type="submit" id="btn-login-submit" class="btn btn-primary w-100 btn-lg">Log in</button>
+            </div>
+            <input type="hidden" name="option" value="com_login">
+            <input type="hidden" name="task" value="login">
+            <input type="hidden" name="return" value="aW5kZXgucGhwP29wdGlvbj1jb21fc3BtJnZpZXc9Y3VzdG9tZXJz">
+            <input type="hidden" name="6b023fd150335522c79b19b0d8141cbd" value="1">        </div>
+    </fieldset>
+</form>
+<div class="text-center">
+    <div>
+        <a href="https://docs.joomla.org/Special:MyLanguage/How_do_you_recover_or_reset_your_admin_password%3F" target="_blank" rel="noopener nofollow" title="Open Forgot your login details? in new window">Forgot your login details?</a>    </div>
+</div>
+
+                    </div>
+                </main>
+            </section>
+        </div>
+
+        <div id="sidebar-wrapper" class="sidebar-wrapper px-3 pb-3">
+            <div id="main-brand" class="main-brand">
+                <h1>J4 Testing</h1>
+                <h2>Joomla Administrator Login</h2>
+            </div>
+            <div id="sidebar">
+                <div class="col-md-12 module-wrapper">
+    <div class="card pt-3">
+                            <h3 class="card-header">Need Support?</h3>
+                <div class="module-body">
+            <section class="loginsupport">
+    <p>You can find help here:</p>
+    <ul class="list-unstyled">
+        <li>
+            <a href="https://forum.joomla.org/" target="_blank" rel="nofollow noopener" title="Open Joomla! Support Forum in new window">Joomla! Support Forum</a>        </li>
+        <li>
+            <a href="https://docs.joomla.org/" target="_blank" rel="nofollow noopener" title="Open Joomla! Documentation in new window">Joomla! Documentation</a>        </li>
+        <li>
+            <a href="https://www.joomla.org/announcements.html" target="_blank" rel="nofollow noopener" title="Open Joomla! News in new window">Joomla! News</a>        </li>
+    </ul>
+</section>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
