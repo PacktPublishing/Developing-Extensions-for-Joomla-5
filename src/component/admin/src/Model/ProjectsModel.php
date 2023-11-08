@@ -33,7 +33,7 @@ class ProjectsModel extends ListModel
         $value = $app->input->get('limitstart', 0, 'uint');
         $this->setState('list.start', $value);
 
-        $search = $this->getUserStateFromRequest($this->context . '.filter.search', 'filter_search');
+        $search = $this->getUserStateFromRequest($this->context . '.filter.search', 'filter_search', 'string');
         $this->setState('filter.search', $search);
 
         parent::populateState($ordering, $direction);
