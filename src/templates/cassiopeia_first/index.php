@@ -248,7 +248,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
 	<?php if ($this->countModules('afterfooter', true)) : ?>
     	<div class="container-afterfooter afterfooter full-width">
         	<div class="grid-child">
-            	<jdoc:include type="modules" name="afterfooter" style="none" />
+            	<jdoc:include type="modules" name="afterfooter" style="titleCentered" />
         	</div>
     	</div>
 	<?php endif; ?>
