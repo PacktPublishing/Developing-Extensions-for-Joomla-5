@@ -1,2 +1,2 @@
-# Developing-Joomla-5-Extensions
-Developing Joomla 5 Extensions, published by Packt
+# Developing Extensions for Joomla! 5
+Developing Extensions for Joomla! 5, published by Packt
