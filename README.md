@@ -1,1 +1,1 @@
-# B19245_Developing-Joomla-5-Extensions
+# Developing Extensions for Joomla! 5
